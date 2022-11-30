@@ -2,15 +2,14 @@ kind: pipeline
 type: docker
 name: Testing Python CI/CD
 
-
 steps:
-- name: check bgp neighborship
-  image: python
+- name: Check IP Interfaces
+  image: anandbr2005/nieautomation
   environment:
-    password:
-      from_secret: password
-    user:
-      from_secret: user
+    PASSWORD:
+      from_secret: PASSWORD
+    USER:
+      from_secret: USER
   commands:
-  - pip3 install -r requirements.txt
+#  - pip3 install -r requirements.txt
   - python3 checkip.py
